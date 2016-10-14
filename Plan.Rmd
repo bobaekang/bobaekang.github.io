@@ -1,0 +1,36 @@
+---
+title: "Thesis planning"
+author: "Bobae Kang"
+date: "October 14, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Note: the following contents of this document are subject to change as the project develops* 
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/ba/Bike_to_Work_Day_Rally.jpg)
+*DIVVY bikes; image source: Wikipedia.com*
+
+## Summary
+
+My research will examine people's use of bike-sharing services (BSS) in Chicago area, particularly in relation with the traditional public transit (bus and rail). This is to ask: how can we evaluate the complementary role of BSS to the public transit system, which is often asserted to exist in the current literature on BSS? The rapid growth of BSS in the last decade resulted in many studies examining various aspects of BSS. However, few studies on the relevant topic have utilized the quantitative data on actual trips made. My study aims to address this gap by piggybacking on another study on *DIVVY*, the BSS local to Chicago area:  A. Faghih-Imani and N. Eluru's "Analysing bicycle-sharing system user destination choice preferences: Chicago’s Divvy system" (2015). Instead of simply updating Faghih-Imani and Eluru (2015) with more recent data, my study takes a narrower focus on the relationship between *DIVVY* uses and public transit uses with more elaborate measures.
+
+Related: ["Chicago tops NYC as most bike-friendly city in U.S., magazine finds"](http://www.chicagotribune.com/news/local/breaking/ct-bicycling-magazine-rating-20160917-story.html) in *Chicago Tribune*, September 19, 2016  
+
+> "He [Bill Strickland] also praised Chicago for expanding its Divvy bike share program into less affluent areas of the city. The city also started the Divvy for Everyone program, which subsidizes bike-share memberships for low-income residents. Divvy has more than 34,000 members, and rides are up 16 percent this year, said Chicago Department of Transportation spokesman Mike Claffey."
+
+
+***
+
+## Data
+
+*DIVVY* offers its per-trip dataset since its launching in 2013 freely on its [webpage](https://www.divvybikes.com/data). For each trip, the data set offers **1)** trip start and end time, **2)** trip start and end stations, **3)** rider type (member or 24-hour pass user), and, if it is a member trip, **4)** the member's gender and year of birth. Although information on stations in this dataset only include their name and unique numeric identifer, their geographical locations can be specified when combined with [the DIVVY Bicycle Stations dataset available on the City of Chicago Data Portal webpage](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data). Chicago Transit Authority (CTA) also offers a variety of data relevant to my research, including the timetables for bus routes and rail lines as well as the locations of all bus and rail stations.
+
+***
+
+## Methodology
+
+Based on the *DIVVY* data from the last three years (2013 Q3 to 2016 Q2), I will examine whether and, if so, how the availability of public transit is correlated with the *DIVVY* uses at its stations. The basic methodology for this study is as follows: All *DIVVY* stations will first be divided into two categories: one for the stations with nearby public transit stops and the other without any nearby public transit stops. I will refer to the existing literature on urban transportation and mobility, including Faghih-Imani and Eluru (2015) to determine the standard for such proximity. Then the number of *DIVVY* trips between these two categories will be compared to test for the correlation between the number of *DIVVY* trips and public transit availability. Furthermore, for the first group of *DIVVY* stations, the time of *DIVVY* trips will be compared to the bus or rail schedules to better approximate the connected uses between the two modes of transportation.
