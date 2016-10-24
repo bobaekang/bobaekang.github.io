@@ -1,0 +1,55 @@
+---
+title: "Thesis planning"
+author: "Bobae Kang"
+date: "October 14, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Note: the following contents of this document are subject to change as the project develops* 
+
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/ba/Bike_to_Work_Day_Rally.jpg)
+*Divvy bikes; image source: Wikipedia.com*
+
+## Title
+### "Measuring Complementary Effects of Bike-Sharing System on Public Transit Ridership in Chicago"
+
+***
+
+## Summary
+
+My research will examine the complementary effect of bike-sharing system (BSS) on the public transit ridership in Chicago using, primarily, Divvy and Chicago Transit Authority (CTA) data. Divvy is the BSS local to the Chicago area and CTA provides public transportation in forms of buses and rails. Although the existing literature attests for the complementary role of BSS to the existing public transit system, few studies have conducted quantitative evaluation of the effect based on the data on actual trips made. My study aims to address this gap by piggybacking on another study on Divvy: Faghih-Imani and Eluru’s “Analysing bicycle-sharing system user destination choice preferences: Chicago’s Divvy system” (2015). Instead of simply updating the study with more recent data, my study takes a narrower focus on the relationship between Divvy uses and public transit uses with more elaborate measures.
+
+Related: ["Chicago tops NYC as most bike-friendly city in U.S., magazine finds"](http://www.chicagotribune.com/news/local/breaking/ct-bicycling-magazine-rating-20160917-story.html) in *Chicago Tribune*, September 19, 2016  
+
+> "He [Bill Strickland] also praised Chicago for expanding its Divvy bike share program into less affluent areas of the city. The city also started the Divvy for Everyone program, which subsidizes bike-share memberships for low-income residents. Divvy has more than 34,000 members, and rides are up 16 percent this year, said Chicago Department of Transportation spokesman Mike Claffey."
+
+
+***
+
+## Data
+
+Divvy offers its per-trip dataset since its launching in 2013 freely on its [webpage](https://www.divvybikes.com/data). The total number of trips made in the last three years, from June 27, 2013 to June 30, 2016, amounts to over 10 million observations. For each trip, the dataset offers **1)** trip start and end time, **2)** trip start and end stations, **3)** rider type (member or 24-hour pass user), and, if it is a member trip, **4)** the member’s gender and year of birth. It must be noted that the observations for the first few months do not include the gender and age of the Divvy member users, but this omission is not critical to the proposed study because its primary focus is not who the individual users are but when and where the trips are made. The dataset also includes a separate file specifying the geographic information on each station, i.e. its latitude and longitude. In addition, CTA offers a variety of data relevant to my study, including the timetables for bus routes and rail lines and the locations of all bus and rail stations. When combined, these two sets of data allow me to approximate the availability of public transportation for all CTA bus and rail stations.  
+  
+The key data for this study, i.e. publicly available per-trip Divvy dataset, has many characteristics of big data that are helpful for answering my research question. Divvy data contains all the trips made since the launching of its service, which makes it a complete set for the given duration. Its size, over 10 million observations, can provide me with enough observations of rare events for producing potentially significant results. In addition, the data is collected automatically for every trip, leaving little room for reactivity. Furthermore, the Divvy dataset does not contain any sensitive information that can lead to the identifiability of individual Divvy users. Although it may be possible to identify a specific member user through unique trip patterns, the data will reveal little more than the fact that such repeated trips may be made by the same, yet anonymous user.  
+  
+  
+The Divvy data is drifting to some extent; for example, the data for gender and age for members was not collected during the first few months since the service first launched. Although it is a limiting factor, this drift does not pose any critical challenge since, first, the characteristic of individual users is not a major focus of my study and, second, the gender and age data for member trips appear as early as the beginning of 2014. A greater challenge comes from another drift: the fast expansion of Divvy. More specifically, Divvy began with 750 bikes with 75 stations; today, according to its official website, there are approximately 580 stations and 5,800 bikes. My study will address this drift in two ways. First, through an exploratory data analysis, I will look for the existence of discrete stages of the expansion. If such discrete stages exist, I will use each as a distinct chronological unit for the main analysis. Second, I will standardize the result for each station—i.e., the likelihood, rather than the number, of trips will be compared across different stations.
+
+***
+
+## Methodology
+
+My study’s principal methodology combines counting and matching. Put simply, my study will count the trips that are likely made in connection with public transit uses and compare it to the number of the other trips that are not likely made in connection with public transit uses. More specifically, I will first identify all Divvy stations that are located in reasonable proximity with public transit stops, i.e., that can be utilized as transit locations for multi-modal (Divvy to bus or rail, and vice versa) trips. I will refer to the existing literature on urban transportation and mobility to determine the viable standard for such proximity. Once these “close” stations are identified, I will measure the number of trips made to and from those stations. In doing so, I will distinguish between trips made close to the arrival of buses and/or trains (the “treatment” group) and all the other trips (the “control” group). For example, if a trip is made to a Divvy station A, which is close to a bus stop B, shortly before a bus is scheduled to come, this trip may be counted as a treatment group observation. However, if a trip is made to the same station, A, five minutes after a bus is scheduled to pass by B, this trip will be counted toward the “control” group, since it is less likely that such a trip would be intended as part of a multi-modal transportation. I will carry out a series of exploratory data analyses to develop a more accurate standard for the distinction.  
+  
+When the comparison is made between the “treatment” group and the “control” group, it is crucial to ensure that the comparison is “fair” by controlling other potentially influential variables other than the availability of public transit at the given time-space. Such variables include, but are not limited to, temporal characteristics (e.g., season of the year, day of the week, and time of the day), weather condition (e.g., temperature and precipitation), land use and built environment attributes (e.g., presence of restaurants, museums, businesses and universities), regional demographic and socioeconomic characteristics (e.g., the median income for the neighborhood). Controlling for these variables require additional data other than Divvy and CTA data, which can largely be gained through public sources. For example, [the National Centers for Environmental Information](https://www.ncdc.noaa.gov/) provides the relevant regional historical meteorological data and [the United States Census Bureau](http://www.census.gov/en.html) offers the demographic and socioeconomic data.
+
+***
+
+## Significance
+
+The main contribution of my study will be an effective measure for the complementary effect of BSS on the public transit ridership, which has practical policy implications on urban planning. With an accurate measurement for this particular inter-modal transportation, the City of Chicago will be able to make more informed decisions to promote the use of public transportation and the greater mobility of its residents. Such informed decisions may lead to other benefits, such as less traffic on the road due to the increased public transit ridership, greater productivity of workers as well as more consumption due to the enhanced mobility as well as less time and resources wasted in transit, and less carbon emissions. Other municipalities that have similar BSS in operation—such as Boston (Hubway), Denver (B-cycle), New York (City Bike), Philadelphia (Indego), and Washington D.C. (Capital Bikeshare)—can also benefit from this study’s example and develop effect measures for their own services.
