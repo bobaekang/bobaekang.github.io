@@ -1,7 +1,7 @@
 ---
 title: "Thesis planning"
 author: "Bobae Kang"
-date: "October 14, 2016"
+date: "October 28, 2016 (last updated)" 
 output: html_document
 ---
 
@@ -53,3 +53,12 @@ When the comparison is made between the “treatment” group and the “control
 ## Significance
 
 The main contribution of my study will be an effective measure for the complementary effect of BSS on the public transit ridership, which has practical policy implications on urban planning. With an accurate measurement for this particular inter-modal transportation, the City of Chicago will be able to make more informed decisions to promote the use of public transportation and the greater mobility of its residents. Such informed decisions may lead to other benefits, such as less traffic on the road due to the increased public transit ridership, greater productivity of workers as well as more consumption due to the enhanced mobility as well as less time and resources wasted in transit, and less carbon emissions. Other municipalities that have similar BSS in operation—such as Boston (Hubway), Denver (B-cycle), New York (City Bike), Philadelphia (Indego), and Washington D.C. (Capital Bikeshare)—can also benefit from this study’s example and develop effect measures for their own services.
+
+***
+
+## Exploratory Plots
+
+Each plot represents either the number of trips made from stations or the number of trips made to stations during the first and second quarters of 2016. Combined, the plots suggest that most of the trips are concentrated in the downtown Chicago area.
+
+![](graphics/Divvy_trips_from.png)
+![](graphics/Divvy_trips_to.png)
